@@ -10,4 +10,10 @@ class c_usuario {
     public function login() {
         include('View/login.php');
     }
+    public function traductor() {
+        $this->m_usuario->traductor();
+    }
+    public function agregar() {
+        $this->m_usuario->agregar();
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 include_once 'assets/header.php';
 
+
 ?>
 
 <style>
@@ -82,6 +83,11 @@ include_once 'assets/header.php';
 <!-- Custom styles for this template -->
 <link href="assets/style.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 
 <body>
@@ -134,22 +140,64 @@ include_once 'assets/header.php';
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Siguiente</span>
         </button>
     </div>
-    <div class="container mt-4">
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Ingrese la palabra a traducir</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <!-- Modal -->
+    <div class="modal fade" id="translationModal" tabindex="-1" role="dialog" aria-labelledby="translationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: #1877F2; color: #ffffff;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="translationModalLabel">Agregar Traducción</h5>
+                    <button type="button" class="close" id="close_modal" data-dismiss="modal" aria-label="Close" style="color: #ffffff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="word_es">Palabra en Español:</label>
+                        <input type="text" class="form-control" id="word_es">
+                    </div>
+                    <div class="form-group">
+                        <label for="word_quiche">Palabra en Quiché:</label>
+                        <input type="text" class="form-control" id="word_quiche">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="addWordBtn" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
         </div>
-        <button type="button" class="btn btn-primary">Traducir</button>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-5">
+                <label for="idioma" class="form-label">Idioma A Traducir</label>
+                <select class="form-select" id="idioma">
+                    <option value="1">Quiche a Español</option>
+                    <option value="2">Español a Quiche</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">&nbsp;</label> <!-- Etiqueta vacía para alinear el botón con el select -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#translationModal">Agregar Traducción</button>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="texto" class="form-label">Ingrese la palabra a traducir</label>
+            <textarea class="form-control" id="texto" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary traducir">Traducir</button>
         <div class="mb-3 flex mt-2">
-            <label for="exampleFormControlTextarea1" class="form-label">Su traduccion</label>
-            <textarea class="form-control disabled" disabled id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="traducido" class="form-label">Su traduccion</label>
+            <textarea class="form-control disabled" disabled id="traducido" rows="3"></textarea>
             <button class="btn btn-primary mt-2">
                 <i class="fas fa-volume-up"></i> Escuchar
             </button>
@@ -157,6 +205,7 @@ include_once 'assets/header.php';
     </div>
     <br><br><br><br><br><br>
     <div class="mt-8"></div>
+    <script src="assets/index.js"></script>
     <?php
     include_once 'assets/footer.php';
     ?>
