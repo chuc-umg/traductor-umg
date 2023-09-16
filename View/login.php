@@ -102,21 +102,23 @@ include_once 'assets/header.php';
         z-index: 1500;
     }
 </style>
+
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
     <main class="form-signin w-100 m-auto">
         <form action="index.php" method="post">
+        <input type="hidden" name="caso" value="login">
             <img class="mb-4" src="logo.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Iniciar Sesion</h1>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" required placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" id="floatingInput" required placeholder="name@example.com">
                 <label for="floatingInput">Correo Electronico</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" required placeholder="Password">
+                <input type="password" class="form-control" name="password" id="floatingPassword" required placeholder="Password">
                 <label for="floatingPassword">Clave</label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            <button class="btn btn-primary w-100 py-2" type="submit">Iniciar Sesion</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
         </form>
     </main>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'Controller/C_usuarios.php';
 require_once 'Model/M_usuarios.php';
 $m_usuarios = new M_usuarios();
@@ -13,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'agregar':
             $c_usuario->agregar();
             break;
+        case 'login':
+            $c_usuario->login_v();
+            break;
 
         default:
             # code...
@@ -24,6 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             case 'login':
                 $c_usuario->login();
                 break;
+            case 'admin':
+                $c_usuario->admin();
+                break;
+                case 'cerrar':
+                    $c_usuario->cerrar();
+                    break;
 
             default:
                 break;
