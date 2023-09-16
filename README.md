@@ -1,2 +1,2 @@
 # traductor-umg
-traductor de español a Quiche
+traductor de quiche y espaniol
